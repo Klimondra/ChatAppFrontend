@@ -29,13 +29,13 @@ const MessageInput = () => {
                     className={`w-[calc(100%-48px)] font-main font-normal text-slate-950 outline-none text-lg resize-none`}
                 />
                 <button
-                    className={`absolute bottom-1.5 right-1.5 w-10 h-10  flex items-center justify-center 
+                    className={`absolute bottom-1.5 right-1.5 w-10 h-10 flex items-center justify-center 
                     bg-green-500 rounded-full shadow-sm
                     ${showSendBtn ? "opacity-100  rotate-0" : "opacity-0 -rotate-135"} hover:bg-green-400 hover:shadow-md active:scale-90 transition-all duration-300 ease-in-out`}
                     onMouseEnter={() => setSendBtnHover(true)}
                     onMouseLeave={() => setSendBtnHover(false)}
                 >
-                    <SlidingIcon width="5.5" height="5.5" hoverState={sendBtnHover} icon={<MdSend/>}/>
+                    <SlidingIcon width="5" height="5" hoverState={sendBtnHover} icon={<MdSend/>}/>
                 </button>
             </div>
         </div>
