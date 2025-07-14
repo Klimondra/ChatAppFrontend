@@ -29,6 +29,7 @@ const NewContact = () => {
 
                 <div className={`flex flex-col gap-4`}>
                     <h5 className={`font-main font-medium text-xl text-green-950`}>Najít kontakt</h5>
+
                 </div>
             </section>
         </section>
