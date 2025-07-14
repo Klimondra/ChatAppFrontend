@@ -4,7 +4,7 @@ import TextareaAutosize from 'react-textarea-autosize'
 import {MdSend} from "react-icons/md";
 import SlidingIcon from "@/components/utils/SlidingIcon";
 
-const MessageInput = () => {
+const MessageInput = ({sendMessage}) => {
     const [message, setMessage] = useState("");
     const [showSendBtn, setShowSendBtn] = useState(false);
     const [sendBtnHover, setSendBtnHover] = useState(false);
@@ -34,6 +34,7 @@ const MessageInput = () => {
                     ${showSendBtn ? "opacity-100  rotate-0" : "opacity-0 -rotate-135"} hover:bg-green-400 hover:shadow-md active:scale-90 transition-all duration-300 ease-in-out`}
                     onMouseEnter={() => setSendBtnHover(true)}
                     onMouseLeave={() => setSendBtnHover(false)}
+                    onClick={() => {sendMessage(message); setMessage("")}}
                 >
                     <SlidingIcon width="5" height="5" hoverState={sendBtnHover} icon={<MdSend/>}/>
                 </button>

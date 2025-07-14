@@ -25,7 +25,7 @@ const SingleChatClient = () => {
     }, [status]);
 
     const connectWebSocket = () => {
-        ws.current = new WebSocket(`${process.env.NEXT_PUBLIC_WEBSOCKET_URL}/ws`)
+        ws.current = new WebSocket(`${process.env.NEXT_PUBLIC_WEBSOCKET_URL}/ws?id=${session.user.id}`);
 
         ws.current.onopen = () => {
             console.log("WebSocket connected");
@@ -46,11 +46,41 @@ const SingleChatClient = () => {
                     setConnecting(false);
                     console.log("Connected");
                     console.log(messageData);
+                    console.log(chatData);
+                    break
+
+                case "newMessage":
+                    console.log("New message");
+                    console.log(messageData);
+                    console.log(chatData);
+                    setChatData(prevChatData => ({
+                        ...prevChatData,
+                        messages: [...(prevChatData?.messages || []), messageData.message]
+                    }));
                     break
             }
         }
 
         return () => {ws.current.close()}
+    }
+
+    const sendMessage = (message) => {
+        ws.current.send(JSON.stringify({
+            type: "sendMessage",
+            data: {
+                chatId: chatId,
+                userId: session.user.id,
+                content: message,
+                timestamp: new Date(Date.now()).toISOString(),
+            }
+        }));
+
+        setChatData({...chatData, messages: [...chatData.messages, {
+                messageId: Date.now(),
+                content: message,
+                sender: "You",
+                timestamp: new Date(Date.now()).toISOString()
+            }]})
     }
 
     return (
@@ -69,7 +99,7 @@ const SingleChatClient = () => {
                 <div className="w-full h-dvh px-4 pt-20 pb-21 overflow-y-scroll lg:pt-8">
                     <MessageList messages={chatData.messages} />
                 </div>
-                <MessageInput />
+                <MessageInput sendMessage={sendMessage}/>
             </section>
         </main>
     );
