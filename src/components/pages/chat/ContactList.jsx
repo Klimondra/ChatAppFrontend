@@ -20,6 +20,9 @@ const ContactList = () => {
     const getContacts = async () => {
         const response = await fetch(`/api/backend/api/contact/list`, {
             method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
             body: JSON.stringify({
                 userId: session.user.id
             })

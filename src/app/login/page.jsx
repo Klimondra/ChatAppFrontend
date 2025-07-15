@@ -11,6 +11,7 @@ const Login = () => {
                     <p className={`font-main text-lg text-slate-500 text-center`}>Vyberte si Vašeho poskytovatele identity</p>
                 </div>
                 <LoginButtons/>
+                <p className={`font-main text-lg text-slate-500 text-center`}>Přihlášením souhlasíte s Podmínkami používání a podmínkami GDPR</p>
             </section>
             <Footer/>
         </main>
