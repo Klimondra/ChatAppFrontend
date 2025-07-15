@@ -12,7 +12,7 @@ const AccountData = () => {
     return (
         <>
             <section className={`lg:hidden`}>
-                <button className={`flex items-center justify-center hover:-translate-y-0.5 active:scale-95 transition-all duration-250`}
+                <button className={`w-9 h-9 flex items-center justify-center hover:-translate-y-0.5 active:scale-95 transition-all duration-250`}
                         onClick={() => setVisibleMobileMenu(!visibleMobileMenu)}
                 >
                     <MdPerson className={`w-8 h-8`}/>
