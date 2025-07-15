@@ -17,6 +17,7 @@ export async function handler(req, { params }) {
     const incomingUrl = new URL(req.url);
     const queryString = incomingUrl.search;
 
+
     const backendUrl = `${process.env.API_URL}/${params.path.join("/")}${queryString}`;
 
     const headers = new Headers(req.headers);
@@ -31,7 +32,10 @@ export async function handler(req, { params }) {
 
     const backendResponse = await fetch(backendUrl, {
         method: req.method,
-        headers,
+        headers: {
+            ...headers,
+            'Accept-Encoding': 'identity',
+        },
         body,
     });
 
