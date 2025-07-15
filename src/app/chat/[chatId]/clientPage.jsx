@@ -25,7 +25,7 @@ const SingleChatClient = () => {
     }, [status]);
 
     const connectWebSocket = () => {
-        ws.current = new WebSocket(`${process.env.NEXT_PUBLIC_WEBSOCKET_URL}/ws?id=${session.user.id}`);
+        ws.current = new WebSocket(`${process.env.NEXT_PUBLIC_WEBSOCKET_URL}/ws?user_id=${session.user.id}&room_id=${chatId}`);
 
         ws.current.onopen = () => {
             console.log("WebSocket connected");
