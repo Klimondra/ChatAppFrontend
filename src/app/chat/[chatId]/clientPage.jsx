@@ -10,7 +10,7 @@ import {useSession} from "next-auth/react";
 
 const SingleChatClient = () => {
     const [connecting, setConnecting] = useState(true);
-    const [chatData, setChatData] = useState({});
+    const [chatData, setChatData] = useState({messages: []});
 
     const params = useParams();
     const { chatId } = params;

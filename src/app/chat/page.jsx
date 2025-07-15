@@ -11,16 +11,15 @@ const ChatPage = () => {
         <main className="w-full min-h-dvh bg-green-50 relative flex flex-row lg:gap-4">
             <Header />
 
-            <PcLeftBar />
-            <section className="w-full min-h-dvh relative px-4 pt-20 flex flex-col gap-6 overflow-y-scroll lg:flex-1 lg:pt-8">
-                <h3 className={`font-main font-medium text-2xl text-slate-950`}>Vaše kontakty</h3>
-                <SessionProvider>
+            <SessionProvider>
+                <PcLeftBar />
+                <section className="w-full min-h-dvh relative px-4 pt-20 flex flex-col gap-6 overflow-y-scroll lg:flex-1 lg:pt-8">
+                    <h3 className={`font-main font-medium text-2xl text-slate-950`}>Vaše kontakty</h3>
                     <ContactList />
-                </SessionProvider>
 
-
-                <NewContact />
-            </section>
+                    <NewContact />
+                </section>
+            </SessionProvider>
         </main>
     );
 };

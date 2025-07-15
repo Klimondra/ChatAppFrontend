@@ -42,7 +42,7 @@ const ContactList = () => {
     return (
         <section className={`w-full h-full flex flex-col gap-2 overflow-x-hidden`}>
             {loading && <p className={`font-main text-2xl text-center`}>Načítání...</p>}
-            {!loading && data.contacts.map(contact => {
+            {!loading && data.contacts?.map(contact => {
                 let date = new Date(contact.last_message_time);
                 if (date < new Date(2020, 2,1)) {
                     date = Date.now()
