@@ -7,13 +7,17 @@ const hostGrotesk = Host_Grotesk({
 });
 
 export const metadata = {
-  title: "Chat App",
-  description: "Chatovací aplikace, vytvořil Klimondra",
+    title: "Chat App",
+    description: "Chatovací aplikace, vytvořil Klimondra",
+    icons: {
+        icon: "favicon.ico",
+    }
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="cs">
+
       <body
         className={`${hostGrotesk.variable} antialiased`}
       >
