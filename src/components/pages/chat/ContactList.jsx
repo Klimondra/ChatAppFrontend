@@ -73,7 +73,7 @@ const ContactList = () => {
                 >
                     <div className="flex flex-col gap-0.25">
                         <h6 className={`font-semibold font-main text-lg text-black`}>{contact.recipient_name}</h6>
-                        <p className={`font-main text-sm`}>{contact.last_message_content}</p>
+                        <p className={`font-main text-sm`}>{contact.last_message_content.substring(0, 20)}{contact.last_message_content.length > 20 && "..."}</p>
                     </div>
                     <p className={`font-main font-light text-sm text-green-950`}>{dateText}</p>
                 </Link>

@@ -42,6 +42,9 @@ const SingleChatClient = () => {
             const messageData = JSON.parse(event.data);
             switch (messageData.type) {
                 case "joinAccepted":
+                    if (messageData.messages === null) {
+                        messageData.messages = [];
+                    }
                     setChatData(messageData);
                     setConnecting(false);
                     console.log("Connected");
@@ -55,7 +58,7 @@ const SingleChatClient = () => {
                     console.log(chatData);
                     setChatData(prevChatData => ({
                         ...prevChatData,
-                        messages: [...(prevChatData?.messages || []), messageData.message]
+                        messages: [...prevChatData.messages, messageData.message]
                     }));
                     break
             }
@@ -75,12 +78,12 @@ const SingleChatClient = () => {
             }
         }));
 
-        setChatData({...chatData, messages: [...chatData.messages, {
+        setChatData((prevState) => ({...prevState, messages: [...prevState.messages, {
                 messageId: Date.now(),
                 content: message,
                 sender: "You",
                 timestamp: new Date(Date.now()).toISOString()
-            }]})
+            }]}))
     }
 
     return (

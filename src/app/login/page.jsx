@@ -1,5 +1,6 @@
 import React from 'react';
 import LoginButtons from "@/components/pages/login/LoginButtons";
+import Footer from "@/components/pages/home/footer";
 
 const Login = () => {
     return (
@@ -11,6 +12,7 @@ const Login = () => {
                 </div>
                 <LoginButtons/>
             </section>
+            <Footer/>
         </main>
     );
 };
