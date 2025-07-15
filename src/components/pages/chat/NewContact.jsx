@@ -76,7 +76,7 @@ const NewContact = () => {
 
                 <div className={`flex flex-col gap-4`}>
                     <h5 className={`font-main font-medium text-xl text-green-950`}>Najít kontakt</h5>
-                    <h6>Vaše ID: {session && session.user.id}</h6>
+                    <h6 className={`font-main`}>Vaše ID: {session && session.user.id}</h6>
                     <div className={`w-full p-3 flex flew-row items-center relative bg-white/70 backdrop-blur-lg border-1 ${errorSign ? "border-red-600/50 shadow-red-100" : "border-green-950/10"} rounded-[23px] shadow-xs`}>
                         <input
                             type="text"
