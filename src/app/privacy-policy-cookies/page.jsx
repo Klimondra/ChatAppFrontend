@@ -69,7 +69,7 @@ const PrivacyCookies = () => (
                     Kde to běží
                 </h2>
                 <p className="font-main text-base text-slate-700">
-                    Vercel, Neon, Railway (EU/USA). Veškerá komunikace přes HTTPS. Pokud data jedou mimo EU, jsou zajištěny standardní smluvní doložky.
+                    Vercel, Neon, Render (EU/USA). Veškerá komunikace přes HTTPS. Pokud data jedou mimo EU, jsou zajištěny standardní smluvní doložky.
                 </p>
 
                 <h2 className="font-main font-semibold text-2xl text-green-900">
